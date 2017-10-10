@@ -96,7 +96,7 @@ class Phased(object):
 		origin_vel = self.check(origin_vel)
 		dest_vel = self.check(dest_vel)
 
-		transmitted = np.array(F)
+		transmitted = np.array(F, copy = False)
 		received = np.empty_like(transmitted, dtype = np.complex)
 
 		t_max = len(F)
