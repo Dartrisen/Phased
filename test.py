@@ -31,15 +31,13 @@ class PhasedTest(unittest.TestCase):
                     'dest_vel':             [0, 0, 0],
         }
         phased = Phased()
-        #io.savemat('{}input'.format(self.path), self.mdict)
 
     def test(self):
 
-        #inputs = io.loadmat('{}{}'.format(self.path, 'input'))
         phased = Phased(**{item: self.mdict[item] for item in self.args1})
-        received = phased.step(**{item: self.mdict[item] for item in self.args2})
+        result = phased.step(**{item: self.mdict[item] for item in self.args2})
 
-        io.savemat('{}test'.format(self.path), {self.name: received})
+        io.savemat('{}test'.format(self.path), {self.name: result})
 
 if __name__ == '__main__':
     test = PhasedTest()
