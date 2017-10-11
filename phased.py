@@ -1,8 +1,10 @@
 __author__ = "UID_0"
+__version__ = "0.0.2"
 
 import numpy as np
 from scipy import constants
 import itertools as it
+from scipy.interpolate import interp1d
 
 class Phased(object):
 	"""
@@ -96,23 +98,35 @@ class Phased(object):
 		origin_vel = self.check(origin_vel)
 		dest_vel = self.check(dest_vel)
 
-		transmitted = np.array(F, copy = False)
-		received = np.empty_like(transmitted, dtype = np.complex)
+		try:
+			if (isinstance(F, list)):
+				transmitted = np.array(F, copy = False)
+			elif (F.dtype == complex or F.dtype == float or F.dtype == int):
+				transmitted = np.array(F, copy = False)
+		except (TypeError, ValueError) as e:
+			print(e)
+		received = np.zeros_like(transmitted, dtype = np.complex)
 
-		t_max = len(F)
+		t_max = transmitted.shape[0]
+		t = [x/self.fs for x in range(0, t_max)]
+		f = interp1d(t, transmitted, bounds_error = False, fill_value = 0.0)
+
 		motion = self.motion(origin_pos, dest_pos, origin_vel, dest_vel, t_max)
 		for counter, t, r in motion:
 			tau = r/self.c
 			if (tau > t):
 				received[counter] = 0
 			else:
-				received[counter] = transmitted[counter]*self.phase(tau)*self.invLoss(tau)
+				transmitted = f(t - tau)
+				received[counter] = transmitted*self.phase(tau)*self.invLoss(tau)
 		return received
 
 def main():
 	phased = Phased()
-	R = phased.step([1, 1, 1, 1, 1], [1000, 0, 0], [300, 200, 50])
+	size = 5
+	F = [1]*size
+	R = phased.step(F, [1000, 0, 0], [300, 200, 50])
 	print(R)
 
 if __name__ == '__main__':
-	main()
+main()
