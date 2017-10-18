@@ -1,5 +1,8 @@
 # Phased
 Signal propagation from one point to another in a free-space environment.
+*Doppler effect
+*Time delay
+*Phase shift
 ***
 Call step to propagate the signal through a free space environmen
 ***
