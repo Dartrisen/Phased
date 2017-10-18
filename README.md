@@ -5,7 +5,9 @@ Signal propagation from one point to another in a free-space environment.
 * Phase shift
 ***
 Call step to propagate the signal through a free space environment
-'''python
+
+.. code:: python
+
 	from phased import Phased
 	instance = Phased()
 	F = [1, 2, 3, 4, 5]
