@@ -1,4 +1,5 @@
 # Phased
+|Python| |Python version|
 Signal propagation from one point to another in a free-space environment.
 
 PropagationSpeed:
