@@ -1,6 +1,8 @@
 # Phased
 Signal propagation from one point to another in a free-space environment.
-
+***
+Call step to propagate the signal through a free space environmen
+***
 PropagationSpeed:
 ________________
 	Signal propagation speed.
@@ -17,7 +19,7 @@ __________
 	Sample rate
 	A scalar containing the sample rate. Units of sample rate are hertz.
 	The algorithm uses this value to determine the propagation delay in number of samples.
-	Default: 1e6
+	Default: 8e3
 Methods:
 _______
 	step:
