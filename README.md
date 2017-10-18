@@ -15,7 +15,8 @@ __________________
 SampleRate:
 __________
 	Sample rate
-	A scalar containing the sample rate. Units of sample rate are hertz. The algorithm uses this value to determine the 		propagation delay in number of samples.
+	A scalar containing the sample rate. Units of sample rate are hertz.
+	The algorithm uses this value to determine the propagation delay in number of samples.
 	Default: 1e6
 Methods:
 _______
