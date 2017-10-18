@@ -8,7 +8,7 @@ from scipy.interpolate import interp1d
 
 class Phased(object):
 	"""
-	The phased modul narrowband signal propagation from one point to another in a free-space
+	The phased module narrowband signal propagation from one point to another in a free-space
 	environment. The object applies range-dependent time delay, gain and phase shift to the
 	input signal.
 	"""
