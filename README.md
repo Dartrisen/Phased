@@ -4,8 +4,18 @@ Signal propagation from one point to another in a free-space environment.
 * Time delay
 * Phase shift
 ***
-Call step to propagate the signal through a free space environmen
+Call step to propagate the signal through a free space environment
+.. code:: python
+	from phased import Phased
+	instance = Phased()
+	F = [1, 2, 3, 4, 5]
+	R = instance.step(F, [1000, 0, 0], [300, 200, 50])
 ***
+origin_pos, dest_pos, origin_vel, dest_vel:
+__________________________________________
+	List of 3 elements like [1, 2, 3]
+	positions and velocities of radar and target
+
 PropagationSpeed:
 ________________
 	Signal propagation speed.
