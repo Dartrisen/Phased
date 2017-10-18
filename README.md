@@ -11,6 +11,7 @@ from phased import Phased
 instance = Phased()
 F = [1, 2, 3, 4, 5]
 R = instance.step(F, [1000, 0, 0], [300, 200, 50])
+'''
 ***
 origin_pos, dest_pos, origin_vel, dest_vel:
 __________________________________________
